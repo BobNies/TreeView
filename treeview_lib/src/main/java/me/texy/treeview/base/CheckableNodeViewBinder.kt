@@ -31,7 +31,5 @@ abstract class CheckableNodeViewBinder(itemView: View?) : BaseNodeViewBinder(ite
      * @param treeNode
      * @param selected
      */
-    fun onNodeSelectedChanged(treeNode: TreeNode?, selected: Boolean) {
-        /*empty*/
-    }
+    abstract fun onNodeSelectedChanged(treeNode: TreeNode?, selected: Boolean)
 }

@@ -74,21 +74,18 @@ class TreeViewAdapter internal constructor(private val context: Context, private
         expandedNodeList?.let {
             val treeNode = it[position]
             val viewBinder = holder as BaseNodeViewBinder
-            if (viewBinder.toggleTriggerViewId != 0) {
-                val triggerToggleView = nodeView.findViewById<View>(viewBinder.toggleTriggerViewId)
-                triggerToggleView?.setOnClickListener {
-                    onNodeToggled(treeNode)
-                    viewBinder.onNodeToggled(treeNode, treeNode.isExpanded)
-                }
-            } else if (treeNode.isItemClickEnable) {
+
+            if (treeNode.isItemClickEnable) {
                 nodeView.setOnClickListener {
                     onNodeToggled(treeNode)
                     viewBinder.onNodeToggled(treeNode, treeNode.isExpanded)
                 }
             }
+
             if (viewBinder is CheckableNodeViewBinder) {
                 setupCheckableItem(nodeView, treeNode, viewBinder)
             }
+
             viewBinder.bindView(treeNode)
         }
 
