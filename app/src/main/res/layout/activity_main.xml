@@ -11,10 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:elevation="5dp"
-        android:background="#ffffff"></androidx.appcompat.widget.Toolbar>
+        android:background="#ffffff"/>
 
     <RelativeLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></RelativeLayout>
+        android:layout_height="match_parent"/>
 </LinearLayout>
