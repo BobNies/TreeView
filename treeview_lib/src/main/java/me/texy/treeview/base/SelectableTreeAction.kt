@@ -1,5 +1,6 @@
 /*
  * Copyright 2016 - 2017 ShineM (Xinyuan)
+ * * Modified 2020 RNies
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
  * file except in compliance with the License. You may obtain a copy of the License at
@@ -11,25 +12,15 @@
  * ANY KIND, either express or implied. See the License for the specific language governing
  * permissions and limitations under.
  */
+package me.texy.treeview.base
 
-package me.texy.treeview.base;
+import me.texy.treeview.TreeNode
 
-import java.util.List;
+interface SelectableTreeAction : BaseTreeAction {
 
-import me.texy.treeview.TreeNode;
-
-/**
- * Created by xinyuanzhong on 2017/4/27.
- */
-
-public interface SelectableTreeAction extends BaseTreeAction {
-    void selectNode(TreeNode treeNode);
-
-    void deselectNode(TreeNode treeNode);
-
-    void selectAll();
-
-    void deselectAll();
-
-    List<TreeNode> getSelectedNodes();
+    fun selectNode(treeNode: TreeNode)
+    fun deselectNode(treeNode: TreeNode)
+    fun selectAll()
+    fun deselectAll()
+    val selectedNodes: List<TreeNode?>
 }
