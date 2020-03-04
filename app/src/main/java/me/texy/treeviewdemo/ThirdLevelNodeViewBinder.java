@@ -3,6 +3,8 @@ package me.texy.treeviewdemo;
 import android.view.View;
 import android.widget.TextView;
 
+import org.jetbrains.annotations.Nullable;
+
 import me.texy.treeview.TreeNode;
 import me.texy.treeview.base.CheckableNodeViewBinder;
 
@@ -25,5 +27,10 @@ public class ThirdLevelNodeViewBinder extends CheckableNodeViewBinder {
     @Override
     public void bindView(TreeNode treeNode) {
         textView.setText(treeNode.getValue().toString());
+    }
+
+    @Override
+    public void onNodeSelectedChanged(@Nullable TreeNode treeNode, boolean selected) {
+
     }
 }

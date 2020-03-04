@@ -15,14 +15,13 @@ public class MyNodeViewFactory extends BaseNodeViewFactory {
     @Override
     public BaseNodeViewBinder getNodeViewBinder(View view, int level) {
         switch (level) {
-            case 0:
-                return new FirstLevelNodeViewBinder(view);
             case 1:
                 return new SecondLevelNodeViewBinder(view);
             case 2:
                 return new ThirdLevelNodeViewBinder(view);
+            case 0:
             default:
-                return null;
+                return new FirstLevelNodeViewBinder(view);
         }
     }
 

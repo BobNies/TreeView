@@ -4,6 +4,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.jetbrains.annotations.Nullable;
+
 import me.texy.treeview.TreeNode;
 import me.texy.treeview.base.CheckableNodeViewBinder;
 
@@ -40,5 +42,10 @@ public class SecondLevelNodeViewBinder extends CheckableNodeViewBinder {
         } else {
             imageView.animate().rotation(0).setDuration(200).start();
         }
+    }
+
+    @Override
+    public void onNodeSelectedChanged(@Nullable TreeNode treeNode, boolean selected) {
+
     }
 }
