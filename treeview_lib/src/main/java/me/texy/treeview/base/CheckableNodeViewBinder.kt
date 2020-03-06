@@ -18,6 +18,7 @@ import android.view.View
 import me.texy.treeview.TreeNode
 
 abstract class CheckableNodeViewBinder(itemView: View?) : BaseNodeViewBinder(itemView) {
+
     /**
      * Get the checkable view id. MUST BE A Checkable type！
      *

@@ -16,6 +16,8 @@ import me.texy.treeview.base.CheckableNodeViewBinder;
 public class FirstLevelNodeViewBinder extends CheckableNodeViewBinder {
     TextView textView;
     ImageView imageView;
+
+
     public FirstLevelNodeViewBinder(View itemView) {
         super(itemView);
         textView = itemView.findViewById(R.id.node_name_view);

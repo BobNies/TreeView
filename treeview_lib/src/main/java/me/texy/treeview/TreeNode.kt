@@ -50,6 +50,12 @@ class TreeNode(var value: Any?) {
         }
     }
 
+    fun removeAll(treeNode: TreeNode?) {
+        treeNode?.let {
+            children?.clear()
+        }
+    }
+
     val isLastChild: Boolean
         get() {
             if (parent == null) {
