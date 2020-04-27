@@ -31,7 +31,11 @@ public class FirstLevelNodeViewBinder extends CheckableNodeViewBinder {
 
     @Override
     public void bindView(final TreeNode treeNode) {
-        textView.setText(treeNode.getValue().toString());
+        Object node = treeNode.getValue();
+        if (node != null) {
+            textView.setText(node.toString());
+        }
+
         imageView.setRotation(treeNode.isExpanded() ? 90 : 0);
         imageView.setVisibility(treeNode.hasChild() ? View.VISIBLE : View.INVISIBLE);
     }

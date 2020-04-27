@@ -60,7 +60,7 @@ class TreeNode(var value: Any?) {
                 return false
             }
             val children: List<TreeNode> = parent!!.getChildren()
-            return children.size > 0 && children.indexOf(this) == children.size - 1
+            return children.isNotEmpty() && children.indexOf(this) == children.size - 1
         }
 
     val isRoot: Boolean

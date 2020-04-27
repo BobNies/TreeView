@@ -2,6 +2,8 @@ package me.texy.treeviewdemo;
 
 import android.view.View;
 
+import org.jetbrains.annotations.NotNull;
+
 import me.texy.treeview.base.BaseNodeViewBinder;
 import me.texy.treeview.base.BaseNodeViewFactory;
 
@@ -12,6 +14,7 @@ import me.texy.treeview.base.BaseNodeViewFactory;
 
 public class MyNodeViewFactory extends BaseNodeViewFactory {
 
+    @NotNull
     @Override
     public BaseNodeViewBinder getNodeViewBinder(View view, int level) {
         switch (level) {
