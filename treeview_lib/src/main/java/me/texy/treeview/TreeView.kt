@@ -30,7 +30,6 @@ class TreeView(root: TreeNode, context: Context, baseNodeViewFactory: BaseNodeVi
     private val baseNodeViewFactory: BaseNodeViewFactory
     private var rootView: RecyclerView? = null
     private var adapter: TreeViewAdapter? = null
-    var isItemSelectable = true
 
     val view: View?
         get() {
