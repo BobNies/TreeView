@@ -24,7 +24,7 @@ abstract class CheckableNodeViewBinder(itemView: View?) : BaseNodeViewBinder(ite
      *
      * @return
      */
-    abstract val checkableViewId: Int
+    abstract val layoutId: Int
 
     /**
      * Do something when a node select or deselect（only triggered by clicked）
@@ -32,5 +32,5 @@ abstract class CheckableNodeViewBinder(itemView: View?) : BaseNodeViewBinder(ite
      * @param treeNode
      * @param selected
      */
-    abstract fun onNodeSelectedChanged(treeNode: TreeNode?, selected: Boolean)
+    abstract fun onNodeChanged(treeNode: TreeNode?, selected: Boolean)
 }

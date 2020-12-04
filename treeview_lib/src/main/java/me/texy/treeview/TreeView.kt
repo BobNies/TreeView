@@ -20,11 +20,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SimpleItemAnimator
 import me.texy.treeview.base.BaseNodeViewFactory
-import me.texy.treeview.base.SelectableTreeAction
+import me.texy.treeview.base.TreeAction
 import me.texy.treeview.helper.TreeHelper
 
 
-class TreeView(root: TreeNode, context: Context, baseNodeViewFactory: BaseNodeViewFactory) : SelectableTreeAction {
+class TreeView(root: TreeNode, context: Context, baseNodeViewFactory: BaseNodeViewFactory) : TreeAction {
     private val root: TreeNode?
     private val context: Context
     private val baseNodeViewFactory: BaseNodeViewFactory
@@ -56,7 +56,7 @@ class TreeView(root: TreeNode, context: Context, baseNodeViewFactory: BaseNodeVi
         (recyclerView.itemAnimator as SimpleItemAnimator?)?.supportsChangeAnimations = false
         recyclerView.layoutManager = LinearLayoutManager(context)
         adapter = TreeViewAdapter(context, root, baseNodeViewFactory)
-        adapter?.setTreeView(this)
+        adapter?.setView(this)
         recyclerView.adapter = adapter
         return recyclerView
     }

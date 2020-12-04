@@ -16,7 +16,7 @@ public class MyNodeViewFactory extends BaseNodeViewFactory {
 
     @NotNull
     @Override
-    public BaseNodeViewBinder getNodeViewBinder(View view, int level) {
+    public BaseNodeViewBinder getViewBinder(View view, int level) {
         switch (level) {
             case 1:
                 return new SecondLevelNodeViewBinder(view);
@@ -29,7 +29,7 @@ public class MyNodeViewFactory extends BaseNodeViewFactory {
     }
 
     @Override
-    public int getNodeLayoutId(int level) {
+    public int getLayoutId(int level) {
         switch (level) {
             case 0:
                 return R.layout.item_first_level;

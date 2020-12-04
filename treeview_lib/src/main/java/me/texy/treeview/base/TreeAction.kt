@@ -16,7 +16,7 @@ package me.texy.treeview.base
 
 import me.texy.treeview.TreeNode
 
-interface SelectableTreeAction : BaseTreeAction {
+interface TreeAction : BaseTreeAction {
 
     fun selectNode(treeNode: TreeNode)
     fun deselectNode(treeNode: TreeNode)

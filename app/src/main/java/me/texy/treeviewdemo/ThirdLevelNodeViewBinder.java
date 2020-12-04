@@ -21,7 +21,7 @@ public class ThirdLevelNodeViewBinder extends CheckableNodeViewBinder {
     }
 
     @Override
-    public int getCheckableViewId() {
+    public int getLayoutId() {
         return R.id.checkBox;
     }
 
@@ -34,7 +34,7 @@ public class ThirdLevelNodeViewBinder extends CheckableNodeViewBinder {
     }
 
     @Override
-    public void onNodeSelectedChanged(@Nullable TreeNode treeNode, boolean selected) {
+    public void onNodeChanged(@Nullable TreeNode treeNode, boolean selected) {
 
     }
 }

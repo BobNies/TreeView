@@ -62,8 +62,8 @@ class TreeViewAdapter internal constructor(private val context: Context, private
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, level: Int): ViewHolder {
-        val view = LayoutInflater.from(context).inflate(baseNodeViewFactory.getNodeLayoutId(level), parent, false)
-        val nodeViewBinder = baseNodeViewFactory.getNodeViewBinder(view, level)
+        val view = LayoutInflater.from(context).inflate(baseNodeViewFactory.getLayoutId(level), parent, false)
+        val nodeViewBinder = baseNodeViewFactory.getViewBinder(view, level)
         nodeViewBinder.setTreeView(treeView)
         return nodeViewBinder
     }
@@ -94,14 +94,14 @@ class TreeViewAdapter internal constructor(private val context: Context, private
     private fun setupCheckableItem(nodeView: View,
                                    treeNode: TreeNode,
                                    viewBinder: CheckableNodeViewBinder) {
-        val view = nodeView.findViewById<View>(viewBinder.checkableViewId)
+        val view = nodeView.findViewById<View>(viewBinder.layoutId)
         if (view is Checkable) {
             val checkableView = view as Checkable
             checkableView.isChecked = treeNode.isSelected
             view.setOnClickListener {
                 val checked = checkableView.isChecked
                 selectNode(checked, treeNode)
-                viewBinder.onNodeSelectedChanged(treeNode, checked)
+                viewBinder.onNodeChanged(treeNode, checked)
             }
         } else {
             throw ClassCastException("getCheckableViewId() must return a CheckBox's id")
@@ -117,14 +117,14 @@ class TreeViewAdapter internal constructor(private val context: Context, private
     private fun selectChildren(treeNode: TreeNode, checked: Boolean) {
         val impactedChildren = TreeHelper.selectNodeAndChild(treeNode, checked)
         val index = expandedNodeList?.indexOf(treeNode) ?: -1
-        if (index != -1 && impactedChildren.size > 0) {
+        if (index != -1 && impactedChildren.isNotEmpty()) {
             notifyItemRangeChanged(index, impactedChildren.size + 1)
         }
     }
 
     private fun selectParentIfNeed(treeNode: TreeNode, checked: Boolean) {
         val impactedParents = TreeHelper.selectParentIfNeedWhenNodeSelected(treeNode, checked)
-        if (impactedParents.size > 0) {
+        if (impactedParents.isNotEmpty()) {
             for (parent in impactedParents) {
                 val position = expandedNodeList?.indexOf(parent) ?: -1
                 if (position != -1) notifyItemChanged(position)
@@ -220,7 +220,7 @@ class TreeViewAdapter internal constructor(private val context: Context, private
 
     }
 
-    fun setTreeView(treeView: TreeView?) {
+    fun setView(treeView: TreeView?) {
         this.treeView = treeView
     }
 

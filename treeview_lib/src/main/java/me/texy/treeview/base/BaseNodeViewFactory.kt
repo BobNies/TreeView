@@ -39,7 +39,7 @@ abstract class BaseNodeViewFactory {
      * @param viewType The viewType value is the treeNode level in the default implementation.
      * @return BaseNodeViewBinder
      */
-    abstract fun getNodeViewBinder(view: View?, viewType: Int): BaseNodeViewBinder
+    abstract fun getViewBinder(view: View, viewType: Int): BaseNodeViewBinder
 
     /**
      * If you want build a tree view,you must implement this factory method
@@ -47,5 +47,5 @@ abstract class BaseNodeViewFactory {
      * @param level Level of view, returned from [.getViewType]
      * @return node layout id
      */
-    abstract fun getNodeLayoutId(level: Int): Int
+    abstract fun getLayoutId(level: Int): Int
 }
