@@ -118,6 +118,11 @@ class TreeNode(var value: Any?) {
         return children!!.size > 0
     }
 
+    fun isEmpty(): Boolean
+    {
+        return children!!.isEmpty()
+    }
+
     val id: String
         get() = "$level,$index"
 
