@@ -110,8 +110,6 @@ class TreeViewAdapter internal constructor(private val context: Context, private
 
     fun selectNode(checked: Boolean, treeNode: TreeNode) {
         treeNode.isSelected = checked
-        selectChildren(treeNode, checked)
-        selectParentIfNeed(treeNode, checked)
     }
 
     private fun selectChildren(treeNode: TreeNode, checked: Boolean) {
