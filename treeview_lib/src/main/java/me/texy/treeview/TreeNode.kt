@@ -27,6 +27,7 @@ class TreeNode(var value: Any?) {
     var isExpanded = false
     var isSelected = false
     var isItemClickEnable = true
+    var willHaveChildren = false
 
     constructor(value: Any?, level: Int) : this(value) {
         this.level = level
